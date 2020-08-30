@@ -70,6 +70,7 @@ public final class ExecDump {
 		});
 		reader.setExecutionDataVisitor(new IExecutionDataVisitor() {
 			public void visitClassExecution(final ExecutionData data) {
+				if(data.getName().contains("mkyong"))
 				out.printf("%016x  %3d of %3d   %s%n",
 						Long.valueOf(data.getId()),
 						Integer.valueOf(getHitCount(data.getProbes())),
@@ -101,6 +102,6 @@ public final class ExecDump {
 	 *             in case of errors executing the example
 	 */
 	public static void main(final String[] args) throws IOException {
-		new ExecDump(System.out).execute(args);
+		new ExecDump(System.out).execute(new String[] { "/Users/shiv/git/maven-examples/maven-code-coverage/target/jacoco.exec"});
 	}
 }

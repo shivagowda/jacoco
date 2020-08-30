@@ -46,6 +46,11 @@ public class ClassInstrumenter extends ClassProbesVisitor {
 	public void visit(final int version, final int access, final String name,
 			final String signature, final String superName,
 			final String[] interfaces) {
+		System.out.println("shiv access = " + access + ", name:" + name + " signature:" + signature + " superName:" + superName);
+		for(String ifc : interfaces)
+			System.out.print(ifc);
+		System.out.println("");
+
 		this.className = name;
 		super.visit(version, access, name, signature, superName, interfaces);
 	}
@@ -63,6 +68,8 @@ public class ClassInstrumenter extends ClassProbesVisitor {
 			final String[] exceptions) {
 
 		InstrSupport.assertNotInstrumented(name, className);
+//		System.out.println("shiv Visited visitMethod: " + name + " signature: " + signature);
+//		System.out.println("desc: " + desc);
 
 		final MethodVisitor mv = cv.visitMethod(access, name, desc, signature,
 				exceptions);

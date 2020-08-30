@@ -27,6 +27,7 @@
   <name>JaCoCo :: Tests</name>
 
   <modules>
+<!--
     <module>../org.jacoco.core.test</module>
     <module>../org.jacoco.core.test.validation</module>
     <module>../org.jacoco.report.test</module>
@@ -36,6 +37,7 @@
     <module>../org.jacoco.cli.test</module>
     <module>../org.jacoco.examples.test</module>
     <module>../jacoco-maven-plugin.test</module>
+-->
   </modules>
 
   <properties>

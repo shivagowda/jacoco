@@ -102,7 +102,17 @@ public class Main extends Command {
 	public static void main(final String... args) throws Exception {
 		final PrintWriter out = new PrintWriter(System.out, true);
 		final PrintWriter err = new PrintWriter(System.err, true);
-		final int returncode = new Main(args).execute(out, err);
+
+		// java -jar
+		// ./org.jacoco.cli/target/org.jacoco.cli-0.8.6-SNAPSHOT-nodeps.jar
+		// report ./org.jacoco.cli.test/target/jacoco.exec --classfiles
+		// ./org.jacoco.cli.test/target/classes --html /tmp/report
+
+		String[] args2 = new String[] { "report",
+				"./org.jacoco.cli.test/target/jacoco.exec", "--classfiles",
+				"./org.jacoco.cli.test/target/classes", "--html",
+				"/tmp/report" };
+		final int returncode = new Main(args2).execute(out, err);
 		System.exit(returncode);
 	}
 
